@@ -13,6 +13,9 @@ if $DIB_IPA_ENABLE_RESCUE; then
     mkdir -p /etc/ipa-rescue-config
 fi
 
+# start DM multipath
+mpathconf --enable --with_multipathd y
+
 case "$DIB_INIT_SYSTEM" in
     upstart)
         if [ -f /etc/init/ufw.conf ]; then
